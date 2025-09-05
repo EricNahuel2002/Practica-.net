@@ -1,0 +1,50 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+# The packages folder can also be under the solution folder
+**/packages/
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET Core / web
+wwwroot/lib/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Publish output
+*.publish.xml
+publish/
+*.deploy.cmd
+*.deploy-readme.txt
+
+# Other
+*.db
+*.log
+*.pdb
+*.pidb
+*.mdb
+*.opendb
+*.sdf
+*.sqlite
+*.DS_Store

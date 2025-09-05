@@ -1,0 +1,72 @@
+﻿@using Entidades
+@model IEnumerable<Herramienta>
+
+<body class="bg-light">
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Listado de Herramientas</h2>
+
+        <!-- 🔍 Barra de búsqueda por ID -->
+        <form asp-action="BuscarPorId" method="get" class="mb-3 d-flex justify-content-center">
+            <input type="number" name="id" class="form-control w-25 me-2" placeholder="Buscar por ID..." required />
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-search"></i> Buscar
+            </button>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover shadow-sm rounded">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var herramienta in Model)
+                    {
+                        <tr>
+                            <td>@herramienta.Id</td>
+                            <td>@herramienta.Nombre</td>
+                            <td>@herramienta.Descripcion</td>
+                            <td>
+                                @if (herramienta.Stock > 0)
+                                {
+                                    <span class="badge bg-success">@herramienta.Stock</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Sin stock</span>
+                                }
+                            </td>
+                            <td>
+                                <img src="@herramienta.Imagen" alt="Imagen @herramienta.Nombre"
+                                     class="img-thumbnail" style="max-width: 100px;" />
+                            </td>
+                            <td>
+                                <form asp-controller="Herramienta" asp-action="Editar" method="post">
+                                    <input type="hidden" name="id" value="@herramienta.Id" />
+                                    <button type="submit" class="bi bi-pencil">Editar</button>
+                                </form>
+
+                                <form asp-controller="Herramienta" asp-action="Eliminar" method="post">
+                                    <input type="hidden" name="id" value="@herramienta.Id" />
+                                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-4">
+            <a asp-controller="Herramienta" asp-action="HerramientaForm" class="btn btn-success btn-lg">
+                <i class="bi bi-plus-circle"></i> Agregar Herramienta
+            </a>
+        </div>
+    </div>
+</body>
