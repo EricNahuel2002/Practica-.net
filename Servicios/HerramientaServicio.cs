@@ -8,7 +8,9 @@ namespace Servicios
         void AgregarHerramienta(Herramienta herramienta);
         void EliminarHerramienta(int id);
 
-        void EditarHerramienta(int id);
+        void EditarHerramienta(Herramienta herramienta);
+
+        Herramienta BuscarHerramienta(int id);
     }
     public class HerramientaServicio : IHerramientaServicio
     {
@@ -26,9 +28,18 @@ namespace Servicios
             herramientas.Add(herramienta);
         }
 
-        public void EditarHerramienta(int id)
+        public Herramienta BuscarHerramienta(int id)
         {
-            throw new NotImplementedException();
+            return this.herramientas.Find(h => h.Id == id);
+        }
+
+        public void EditarHerramienta(Herramienta herramienta)
+        {
+            var i = herramientas.FindIndex(h => h.Id == herramienta.Id);
+            if(i != -1)
+            {
+                this.herramientas[i] = herramienta;
+            }
         }
 
         public void EliminarHerramienta(int id)
