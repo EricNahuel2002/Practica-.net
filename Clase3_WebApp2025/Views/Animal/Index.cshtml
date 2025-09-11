@@ -1,0 +1,23 @@
+﻿@using Entidades
+@model List<Animal>
+
+@{
+    ViewData["Title"] = "Listado de Animales";
+}
+<div class="d-flex justify-content-center">
+<h2>@ViewData["Title"]</h2>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center gap-3">
+    @foreach (var animal in Model)
+    {
+        @await Html.PartialAsync("_AnimalCard",animal);
+    }
+</div>
+
+<div class="d-flex justify-content-center">
+    <form asp-controller="Animal" asp-action="Agregar">
+        <button class="bg-warning">Agregar un animal</button>
+    </form>
+</div>
+

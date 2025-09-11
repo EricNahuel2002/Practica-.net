@@ -1,0 +1,19 @@
+﻿@using Entidades
+
+<div class="card text-center shadow" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nombre</h5>
+        <ul class="list-unstyled">
+            <li>@Model.Sexo</li>
+            <li>@Model.Id</li>
+        </ul>
+        <form asp-controller="Animal" asp-action="Eliminar">
+        <input type="hidden" value="@Model.Id" />
+        <button class="alert-danger">Eliminar</button>
+        </form>
+        <form asp-controller="Animal" asp-action="Editar">
+            <input type="hidden" value="@Model.Id" />
+            <button class="alert-warning">Editar</button>
+        </form>
+    </div>
+</div>
