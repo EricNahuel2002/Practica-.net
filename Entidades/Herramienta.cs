@@ -16,6 +16,12 @@
             this.Stock = stock;
             this.Imagen = imagen;
         }
+        public Herramienta(int id, string nombre)
+        {
+            this.Id = id;
+            this.Nombre = nombre;
+        }
+
 
         public Herramienta() { }
     }
