@@ -38,4 +38,35 @@ public class SesionController : Controller
         TempData["Mensaje"] = "Soy el TempData";
         return RedirectToAction("Index");
     }
+
+
+    public IActionResult PasajeDeDatosView()
+    {
+            return View();
+    }
+
+
+    public IActionResult MensajeDeSesionView(string usuario)
+    {
+        string usuarioPorSession = HttpContext.Session.GetString("usuario");
+        string mensajeError = "ERROR";
+
+        if (usuarioPorSession != usuario)
+        {
+            ViewData["mensaje"] = $"ERROR, desde query string llego: {usuario}                 Y por sesion llego: {usuarioPorSession}";
+        }
+        else
+        {
+            ViewData["mensaje"] = $"Hola, {usuarioPorSession}";
+        }
+        return View();
+    }
+
+
+    [HttpPost]
+    public IActionResult metodo(string nombre)
+    {
+        HttpContext.Session.SetString("usuario", nombre);
+        return RedirectToAction("MensajeDeSesionView", new { usuario = nombre });
+    }
 }
