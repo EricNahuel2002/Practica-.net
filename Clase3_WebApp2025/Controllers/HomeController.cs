@@ -15,6 +15,9 @@ namespace Clase3_WebApp2025.Controllers
 
         public IActionResult Index()
         {
+            var fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            Response.Cookies.Append("last-login", fecha);
             return View();
         }
 

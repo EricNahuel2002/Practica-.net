@@ -69,4 +69,20 @@ public class SesionController : Controller
         HttpContext.Session.SetString("usuario", nombre);
         return RedirectToAction("MensajeDeSesionView", new { usuario = nombre });
     }
+
+
+    public IActionResult UltimoLogueoView()
+    {
+        var LastLogin = Request.Cookies["last-login"];
+
+        if (LastLogin != null)
+        {
+            ViewBag.LastLogin = LastLogin;
+        }
+        else
+        {
+            ViewBag.LastLogin = "Error";
+        }
+            return View();
+    }
 }
