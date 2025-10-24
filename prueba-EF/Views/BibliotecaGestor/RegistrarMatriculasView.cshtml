@@ -1,0 +1,53 @@
+﻿@model Entidad.Models.Matricula
+
+@{
+    ViewData["Title"] = "Registrar Matrícula";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>Asociar un Estudiante a un Curso</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="EstudianteId" class="control-label">Estudiante</label>
+                <select asp-for="EstudianteId" class="form-control" asp-items="ViewBag.EstudianteID">
+                    <option value="">-- Seleccione Estudiante --</option>
+                </select>
+                <span asp-validation-for="EstudianteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <label asp-for="CursoId" class="control-label">Curso</label>
+                <select asp-for="CursoId" class="form-control" asp-items="ViewBag.CursoID">
+                    <option value="">-- Seleccione Curso --</option>
+                </select>
+                <span asp-validation-for="CursoId" class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="FechaMatricula" class="control-label"></label>
+                <input asp-for="FechaMatricula" type="date" class="form-control" />
+                <span asp-validation-for="FechaMatricula" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Registrar Matrícula" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index">Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
