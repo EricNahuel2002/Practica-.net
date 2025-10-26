@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practica-solid.web", "practica-solid.web\practica-solid.web.csproj", "{09E6262D-C9AA-4128-AC71-3F07F01B88DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prueba-SOLID", "prueba-SOLID\prueba-SOLID.csproj", "{1DD15FF0-2D7E-4402-9090-55ECE94E315C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09E6262D-C9AA-4128-AC71-3F07F01B88DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09E6262D-C9AA-4128-AC71-3F07F01B88DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09E6262D-C9AA-4128-AC71-3F07F01B88DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09E6262D-C9AA-4128-AC71-3F07F01B88DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD15FF0-2D7E-4402-9090-55ECE94E315C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD15FF0-2D7E-4402-9090-55ECE94E315C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD15FF0-2D7E-4402-9090-55ECE94E315C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD15FF0-2D7E-4402-9090-55ECE94E315C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
