@@ -1,12 +1,19 @@
 ﻿using Entidad.Models;
 using Entidad.Context;
+using Microsoft.EntityFrameworkCore;
 namespace Repositorio;
 
 
 public interface IAutorRepository
 {
-    void Add(Autor autor);
-    void Delete(Autor autor);
+    void AgregarAutor(Autor autor);
+    void EliminarAutor(int id);
+
+    Autor ObtenerAutorPorId(int id);
+
+    Autor[] ObtenerAutores();
+
+    void EditarAutor(Autor autor);
 }
 
 public class AutorRepository : IAutorRepository
@@ -19,15 +26,32 @@ public class AutorRepository : IAutorRepository
         this.ctx = ctx;
     }
 
-    public void Add(Autor autor)
+    public void AgregarAutor(Autor autor)
     {
         ctx.Autors.Add(autor);
         ctx.SaveChanges();
     }
 
-    public void Delete(Autor autor)
+    public void EditarAutor(Autor autor)
     {
-        ctx.Autors.Where(a1 => a1.AutorId == autor.AutorId).First();
+        ctx.Autors.Update(autor);
         ctx.SaveChanges();
+    }
+
+    public void EliminarAutor(int id)
+    {
+        var autor = this.ObtenerAutorPorId(id);
+        ctx.Remove(autor);
+        ctx.SaveChanges();
+    }
+
+    public Autor[] ObtenerAutores()
+    {
+        return ctx.Autors.ToArray();
+    }
+
+    public Autor ObtenerAutorPorId(int id)
+    {
+        return ctx.Autors.Where(a => a.AutorId == id).First();
     }
 }

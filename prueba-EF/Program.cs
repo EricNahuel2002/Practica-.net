@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BibliotecaDBContext>();
 builder.Services.AddScoped<IAutorRepository, AutorRepository>();
-builder.Services.AddScoped<IGestionBibliotecaServicio, GestionBibliotecaServicio>();
+builder.Services.AddScoped<IAutorServicio, AutorServicio>();
 
 var app = builder.Build();
 

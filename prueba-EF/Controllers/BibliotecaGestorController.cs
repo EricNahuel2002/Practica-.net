@@ -8,11 +8,10 @@ namespace prueba_EF.Controllers;
 public class BibliotecaGestorController : Controller
 {
 
-    private IGestionBibliotecaServicio _bibliotecaServicio;
 
-    public BibliotecaGestorController(IGestionBibliotecaServicio bibliotecaServicio)
+
+    public BibliotecaGestorController()
     {
-        _bibliotecaServicio = bibliotecaServicio;
     }
 
     public IActionResult Index()
@@ -20,10 +19,6 @@ public class BibliotecaGestorController : Controller
         return View();
     }
 
-    public IActionResult RegistrarAutoresView()
-    {
-        return View();
-    }
     public IActionResult RegistrarLibrosView()
     {
         return View();
@@ -44,18 +39,5 @@ public class BibliotecaGestorController : Controller
     }
 
 
-
-
-    [HttpPost]
-    public IActionResult RegistrarAutor(Autor autor)
-    {
-        if (!ModelState.IsValid)
-        {
-            return View("RegistrarAutoresView", autor);
-        }
-
-        this._bibliotecaServicio.agregarAutor(autor);
-
-        return View("RegistrarAutoresView");
-    }
+    
 }

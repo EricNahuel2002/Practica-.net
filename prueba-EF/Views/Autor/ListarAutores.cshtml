@@ -1,0 +1,50 @@
+﻿@model Entidad.Models.Autor[]
+
+@{
+    ViewData["Title"] = "Listado de Autores";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-controller="Autor" asp-action="RegistrarAutorView" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Nuevo Autor
+    </a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info mt-3">
+        No hay autores registrados.
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Pais</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var autor in Model)
+            {
+                <tr>
+                    <td>@autor.AutorId</td>
+                    <td>@autor.Nombre</td>
+                    <td>@autor.Pais</td>
+                    <td>
+                        <a asp-controller="Autor" asp-action="EditarAutorView" asp-route-id="@autor.AutorId" class="btn btn-sm btn-warning">
+                            Editar
+                        </a>
+                        <a asp-controller="Autor" asp-action="Eliminar" asp-route-id="@autor.AutorId" class="btn btn-sm btn-danger">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
